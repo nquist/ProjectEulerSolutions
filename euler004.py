@@ -2,7 +2,15 @@
 """
 Created on Mon Jun 22 17:12:29 2020
 
-@author: nquis
+@author: nquist
+
+This code solves Project Euler problem 4. The function test_pal is used to test
+if a number is a palindrome. find_pal loops over all numbers starting with 
+the number just under the max number (input) to zero and calculates the 
+products between that number and all the numbers less than or equal to it and 
+then checks that it is a palindrome. If the quotient is a palindrome is larger
+that the current largest palindrome it is saved. After the loops, the largest 
+number is returned.   In this case, the max number is 1000
 """
 
 def test_pal(num):
@@ -22,4 +30,5 @@ def find_pal(mx_num):
             if val and i*j > holder:
                 holder = i*j
     return holder
-        
+
+print(find_pal(1000))
