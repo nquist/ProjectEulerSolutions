@@ -6,9 +6,14 @@ Created on Wed Jul 22 19:54:29 2020
 
 This solves project euler problem 9, which looks for the pathagorean triplet
 which sums to 1000 and prints the product of the pathagorean triplet.
+
+Answer: 31875000.0
+Execution Time: 0.00100 seconds
 """
 
 import numpy as np
+import time
+start = time.time()
 
 missing = True
 i = 1
@@ -25,3 +30,6 @@ while missing:
         print('No value found')
         missing = False
     i+=1
+    
+end = time.time()
+print("The time of execution of above program is %.05f seconds" % (end-start))
