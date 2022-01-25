@@ -8,9 +8,14 @@ This is the soultion for Project Euler problem 6. The function finds the
 difference between the sum of a^2 + b^2 + .... and the square of (a + b + ...).
 Mathematically, this is the sum of 2*a*b + 2*a*c + 2*b*c +....
 The problem asks for the difference of the numbers between 1 and 100.
+
+Answer: 25164150
+Execution Time: 0.02159 seconds
 """
 
 import numpy as np
+import time
+start = time.time()
 
 def sum_square_diff(low, high):
     diff = 0
@@ -21,3 +26,6 @@ def sum_square_diff(low, high):
     return diff
 
 print(sum_square_diff(1,100))
+
+end = time.time()
+print("The time of execution of above program is %.05f seconds" % (end-start))

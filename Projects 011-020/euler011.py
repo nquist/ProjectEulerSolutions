@@ -7,7 +7,13 @@ Created on Sat Jul 25 12:36:27 2020
 This solves project Euler problem 11. This looks for the largest product of
 four numbers that are either horizontally, vertically or diagonally adjacent
 in the grid.
+
+Answer: 70600674
+Execution Time: 0.00500 seconds
 """
+import time
+import numpy as np
+start = time.time()
 
 grid = '''08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
@@ -44,33 +50,41 @@ for i in range(len(grid)):
 def horizontal(grid):
     mx = 0
     for j in range(len(grid)):
-        for k in range(len(grid[0,:])-4):
+        for k in range(len(grid[0,:])-3):
             prod = grid[j,k]*grid[j,k+1]*grid[j,k+2]*grid[j,k+3]
             if prod > mx:
-                print(mx)
                 mx = 1*prod
     return mx
 
 def vertical(grid):
     mx = 0
-    for j in range(len(grid)-4):
+    for j in range(len(grid)-3):
         for k in range(len(grid[0,:])):
             prod = grid[j,k]*grid[j+1,k]*grid[j+2,k]*grid[j+3,k]
             if prod > mx:
-                print(mx)
                 mx = 1*prod
     return mx
 
-def diagonal(grid):
+def diagonal_down(grid):
     mx = 0
-    for j in range(len(grid)-4):
-        for k in range(len(grid[0,:])-4):
+    for j in range(len(grid)-3):
+        for k in range(len(grid[0,:])-3):
             prod = grid[j,k]*grid[j+1,k+1]*grid[j+2,k+2]*grid[j+3,k+3]
             if prod > mx:
-                print(mx)
                 mx = 1*prod
     return mx
 
-print(horizontal(grid_array))
-print(vertical(grid_array))
-print(diagonal(grid_array))
+def diagonal_up(grid):
+    mx = 0
+    for j in range(len(grid)-3):
+        for k in range(len(grid[0,:])-3):
+            prod = grid[j+3,k]*grid[j+2,k+1]*grid[j+1,k+2]*grid[j,k+3]
+            if prod > mx:
+                mx = 1*prod
+    return mx
+
+answer = max([horizontal(grid_array), vertical(grid_array), diagonal_down(grid_array), diagonal_up(grid_array)])
+print('The answer is %.0f.'% (answer))
+
+end = time.time()
+print("The time of execution of above program is %.05f seconds" % (end-start))
