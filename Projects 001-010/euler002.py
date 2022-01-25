@@ -2,12 +2,18 @@
 """
 Created on Mon Jun 22 11:30:16 2020
 
-@author: nquis
+@author: nquist
 
 This code solves Project Euler problem 2. The funtion finds the sum of the even
 numbers in the fibonacci numbers that fall under the given number (num). In this
 case we want numbers that are under 4 million.
+
+Answer: 4613732
+Execution Time: 0.00200 seconds
 """
+
+import time
+start = time.time()
 
 def even_fib(num):
     val1 = 1
@@ -23,4 +29,7 @@ def even_fib(num):
     return sm
 
 print(even_fib(4000000))
+
+end = time.time()
+print("The time of execution of above program is %.05f seconds" % (end-start))
         

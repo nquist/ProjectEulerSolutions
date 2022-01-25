@@ -11,7 +11,12 @@ products between that number and all the numbers less than or equal to it and
 then checks that it is a palindrome. If the quotient is a palindrome is larger
 that the current largest palindrome it is saved. After the loops, the largest 
 number is returned.   In this case, the max number is 1000
+
+Answer: 906609
+Execution Time: 0.63355 seconds
 """
+import time
+start = time.time()
 
 def test_pal(num):
     nstr = str(num)
@@ -32,3 +37,6 @@ def find_pal(mx_num):
     return holder
 
 print(find_pal(1000))
+
+end = time.time()
+print("The time of execution of above program is %.05f seconds" % (end-start))

@@ -8,7 +8,13 @@ This code solves Project Euler problem 3. The function a_factor returns the
 lowest prime factor of the number (num). Factors uses a_factor to find the list
 of prime factors of any given number. In the case of this problem, we were
 looking for the highest prime factor of 600851475143.
+
+Answer: 6857
+Execution Time: 0.00201 seconds
 """
+import time
+start = time.time()
+
 
 def a_factor(num):
     for i in range(1,(num//2)):
@@ -28,3 +34,6 @@ def factors(num):
     return factors
 
 print(factors(600851475143))
+
+end = time.time()
+print("The time of execution of above program is %.05f seconds" % (end-start))
