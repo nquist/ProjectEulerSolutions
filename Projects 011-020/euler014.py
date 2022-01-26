@@ -6,38 +6,49 @@ Created on Mon Jan 24 19:55:18 2022
 This solves project Euler problem 14. This looks for the number lower than 
 1 million that has the longest Collatz sequence.
 
-Answer: 
-Execution Time: 
-    
-    
-    INCOMPLETE -- NO SOLUTION YET ------
+Answer: 837799 (chain of 525)
+Execution Time: 56.17245
 """
 import time
 start = time.time()
 
 def num_even(num):
-    return(num/2)
+    val = num/2
+    return(val)
     
 def num_odd(num):
-    return((3*num)+1)
+    val = (3*num+1)/2
+    return(val)
     
 def Collatz_seq(num):
     curr_num = 1*num
     seq = [num]
     while curr_num > 1:
-        if num%2 == 0:
+        if curr_num%2 == 0:
             tmp = num_even(curr_num)
             seq.append(tmp)
             curr_num = 1*tmp
         else:
             tmp = num_odd(curr_num)
+            seq.append(tmp*2)
             seq.append(tmp)
             curr_num = 1*tmp
 
     return(seq)
 
-coll_13 = Collatz_seq(13)
-print(coll_13, len(coll_13))
+top_range = 999999
+dic = {}
+for i in range(top_range, 0, -1):
+    if i not in dic:
+        curr_list = Collatz_seq(i)
+        for j in range(len(curr_list)):
+            if (curr_list[j] not in dic) and (curr_list[j] <= top_range):
+                dic[curr_list[j]] = len(curr_list)-j
+
+max_chain = max(dic.values())
+max_key = max(dic, key=dic.get)
+print(max_chain)
+print(max_key)
 
 end = time.time()
 print("The time of execution of above program is %.05f seconds" % (end-start))
