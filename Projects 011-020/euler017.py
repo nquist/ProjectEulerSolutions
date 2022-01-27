@@ -7,10 +7,7 @@ This solves project Euler problem 17. This finds the number of letters used in
 the numbers from 1 to 1000 inclusive.
 
 Answer: 21124
-Execution Time: 0.00788 seconds
-
-
-    INCOMPLE---- HAVE NOT FINISHED SOLUTION
+Execution Time: 0.00500 seconds
 """
 
 import time
