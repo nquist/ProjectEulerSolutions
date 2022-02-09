@@ -7,7 +7,7 @@ This solves project Euler problem 37. This finds all the truncatable primes that
 are truncatable in both directions. And it returns the sum.
 
 Answer: 748317
-Execution Time: 1411.05703 seconds
+Execution Time: 788.77936 seconds
 """
 
 import time
