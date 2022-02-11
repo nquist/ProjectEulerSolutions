@@ -7,7 +7,7 @@ This solves project Euler problem 14. This looks for the number lower than
 1 million that has the longest Collatz sequence.
 
 Answer: 837799 (chain of 525)
-Execution Time: 5.06631
+Execution Time: 5.06631 seconds
 """
 import time
 start = time.time()

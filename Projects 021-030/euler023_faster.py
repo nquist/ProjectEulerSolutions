@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Feb  7 22:24:09 2022
+Created on Thu Feb 10 18:05:40 2022
 
 @author: nquist
 This solves project Euler problem 23. 
 
 Answer: 4179871
-Execution Time: 1140.55349 seconds
+Execution Time:  seconds
 """
 import numpy as np
 import time
@@ -23,25 +23,32 @@ def proper_divisors(num):
 
 def find_abundant_nums(mx):
     abun_list = []
-    for i in range(12, mx+1):
-        divs = proper_divisors(i)
-        if sum(divs) > i:
-            abun_list.append(i)
-            
+    tws = list(range(12, mx, 2))
+    threes = list(range(12, mx, 3))
+    starting_list = list(set(tws+threes))
+    for i in range(len(starting_list)):
+        divs = proper_divisors(starting_list[i])
+        if sum(divs) > starting_list[i]:
+            abun_list.append(starting_list[i])
     return abun_list
 
 lst = find_abundant_nums(28111)
-numbers = list(range(1, 28123))
-for i in range(len(lst)):
+abun_sums = []
+'''numbers = list(range(1, 28123))'''
+'''for i in range(len(lst)):
     for j in range(len(lst)):
         sm = lst[i]+lst[j]
         if sm > 28123:
             break
-        elif sm in numbers:
-            numbers.remove(sm)
+        elif sm not in abun_sums:
+            abun_sums.append(sm)'''
 
+'''
 print('The sum of the sum of positive integers which cannot be written as the sum of' +
       'two abundant numbers is %i.' % sum(numbers))
+'''
+#print(abun_sums)
 
 end = time.time()
 print("The time of execution of above program is %.05f seconds" % (end-start))
+
