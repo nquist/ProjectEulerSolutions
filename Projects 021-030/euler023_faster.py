@@ -35,13 +35,13 @@ def find_abundant_nums(mx):
 lst = find_abundant_nums(28111)
 abun_sums = []
 '''numbers = list(range(1, 28123))'''
-'''for i in range(len(lst)):
-    for j in range(len(lst)):
+for i in range(len(lst)):
+    for j in range(i, len(lst)):
         sm = lst[i]+lst[j]
         if sm > 28123:
             break
         elif sm not in abun_sums:
-            abun_sums.append(sm)'''
+            abun_sums.append(sm)
 
 '''
 print('The sum of the sum of positive integers which cannot be written as the sum of' +
