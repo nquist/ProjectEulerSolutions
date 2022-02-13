@@ -40,7 +40,7 @@ for i in range(len(lst)):
         elif sm in numbers:
             numbers.remove(sm)
 
-print('The sum of the sum of positive integers which cannot be written as the sum of' +
+print('The sum of the sum of positive integers which cannot be written as the sum of ' +
       'two abundant numbers is %i.' % sum(numbers))
 
 end = time.time()
