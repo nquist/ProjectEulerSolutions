@@ -3,13 +3,16 @@
 Created on Wed Feb 16 13:42:05 2022
 
 @author: nquist
-This solves project Euler problem 45. 
+This solves project Euler problem 45. This finds the next number that is both
+a Triangle, Pentagonal and Hexagonal number after 40755. The Triangle, pentagonal
+and hexagonal numbers can be calculated using.
+
+T(n) = n(n+1)/2
+P(n) = n(3n-1)/2
+H(n) = n(2n-1)
 
 Answer: 1533776805
-Execution Time:  seconds
-
-
-    IN PROGRESS ----- NOT COMPLETE
+Execution Time: 0.15205 seconds
 """
 
 import time
