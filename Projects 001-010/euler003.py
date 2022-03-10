@@ -4,17 +4,16 @@ Created on Mon Jun 22 14:21:54 2020
 
 @author: nquist
 
-This code solves Project Euler problem 3. The function a_factor returns the 
-lowest prime factor of the number (num). Factors uses a_factor to find the list
-of prime factors of any given number. In the case of this problem, we were
-looking for the highest prime factor of 600851475143.
+This code solves Project Euler problem 3. 
+
+The prime factors of 13195 are 5, 7, 13 and 29.
+What is the largest prime factor of the number 600851475143?
 
 Answer: 6857
 Execution Time: 0.00201 seconds
 """
 import time
 start = time.time()
-
 
 def a_factor(num):
     for i in range(1,(num//2)):
