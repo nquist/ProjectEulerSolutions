@@ -5,47 +5,50 @@ Created on Tue Feb  8 21:35:06 2022
 @author: nquist
 This solves project Euler problem 26. 
 
-Answer: 
-Execution Time:  seconds
+A unit fraction contains 1 in the numerator. The decimal representation of the 
+unit fractions with denominators 2 to 10 are given:
 
+1/2= 0.5            1/3= 0.(3)          1/4= 0.25
+1/5= 0.2            1/6= 0.1(6)         1/7= 0.(142857)
+1/8= 0.125          1/9= 0.(1)          1/10= 0.1
 
-    IN PROGRESS ----- NOT COMPLETE
+Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle. It can be 
+seen that 1/7 has a 6-digit recurring cycle.
+
+Find the value of d < 1000 for which 1/d contains the longest recurring cycle 
+in its decimal fraction part.
+
+Answer: 983
+Execution Time: 2.61026 seconds
 """
 
 import time
 start = time.time()
 
-length = 1
-val = 1
-
-
-def find_rec_cycle(num):
-    leng = 1
-    if num < 10:
-        string = list(str(1/num)[2:])
-    elif num < 100:
-        string = list(str(1/num)[3:])
-    else:
-        string = list(str(1/num)[4:])
-    print(string)
-    for i in range(0, 10):
-        counter = string.count(str(i))
-        if counter > 1:
-            pos_of_first = string.find(str(i))
-            for i in range(counter+1):
-                pos_of_next = string[pos_of_first+1:].find(str(i))
-                diff = pos_of_next-pos_of_first
-                if string[pos_of_first:pos_of_next] == string[pos_of_next:pos_of_next+diff]:
-                    return(diff)
+def recy(num, denom):
+    for i in range(1, denom+1):
+        if (num*(10**i-1))%denom == 0:
+            return i
+    return 0
+        
+repeating_vals = []
     
-    return leng
-    
-for i in range(1, 11):
-    if len(str(1/i)) > 18:
-        temp_length = find_rec_cycle(i)
-        if temp_length > length:
-            length = 1*temp_length
-            val = 1*i
+for i in range(1, 1001):
+    if len(str(1/i)) >= 18:
+        repeating_vals.append(i)
+
+vals_dic = {}
+for j in repeating_vals:
+    repeat_len = 0
+    remain = 1
+    while repeat_len == 0:
+        repeat_len = recy(remain, j)
+        if repeat_len != 0:
+            vals_dic[j] = repeat_len
+        else:
+            remain = (remain%j)*10
+
+print('The max length is %i' % max(vals_dic, key=vals_dic.get))
         
 
 end = time.time()
